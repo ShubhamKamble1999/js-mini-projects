@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.card-body{
+    width: 400px;
+    max-height: 400px;
+    background-color: grey;
+}
+
+.card-image-block{
+    position: relative;
+}
+
+.review-image{
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.card-text-block{
+    padding: 50px 16px 16px 16px;
+}
+
+.card-text-block h4,p{
+    /* padding: 50px 16px 16px 16px; */
+    text-align: center;
+    margin: 0px;
+}
+
+.card-text-block p{
+    padding: 16px 0px;
+}

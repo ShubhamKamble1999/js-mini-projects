@@ -1,0 +1,40 @@
+.card-container{
+    margin: 200px 100px;
+}
+
+.card-bock{
+    background-color: gray;
+    max-height: 300px;
+    width: 300px;
+}
+
+.text-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* flex-direction: column; */
+}
+
+.image-block{
+    position: relative;
+}
+
+/* .image-block img{
+    height: 80px;
+    width: 80px;
+} */
+
+.review-image{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: -50%;
+    margin-left: 50%;
+    transform: translate(-50%,50%);
+}
+
+.text-wrapper{
+    text-align: center;
+    padding: 30px;
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script defer src="script/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-block">
+            <div class="steps-container">
+                <div class="step-block">
+                    <div class="step-circle" onclick="manageClick(1)" id="step-circle-1-id">
+                        <span>1</span>
+                    </div>
+                    <div class="step-title-block">
+                        <p class="step-text">STEP 1</p>
+                        <p class="step-title">YOUR INFO</p>
+                    </div>
+                </div>
+                <div class="step-block">
+                    <div class="step-circle" onclick="manageClick(2)" id="step-circle-2-id" >
+                        <span>2</span>
+                    </div>
+                    <div class="step-title-block">
+                        <p class="step-text">STEP 2</p>
+                        <p class="step-title">SELECT PLAN</p>
+                    </div>
+                </div>
+                <div class="step-block">
+                    <div class="step-circle" onclick="manageClick(3)" id="step-circle-3-id">
+                        <span>3</span>
+                    </div>
+                    <div class="step-title-block">
+                        <p class="step-text">STEP 3</p>
+                        <p class="step-title">ADD ONS</p>
+                    </div>
+                </div>
+                <div class="step-block">
+                    <div class="step-circle" onclick="manageClick(4)" id="step-circle-4-id" >
+                        <span>4</span>
+                    </div>
+                    <div class="step-title-block">
+                        <p class="step-text">STEP 4</p>
+                        <p class="step-title">SUMMARY</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="right-block">
+            <div class="form-wrapper">
+                <form onsubmit="submitPersonalInfo()" class="personal-info-block" id="personal-info-id">
+                    <div class="form-content-block">
+                        <div class="head-and-info-wrapper">
+                            <div class="form-header">
+                                <h2>Personal info</h2>
+                                <p>Please provide your name, email address, and phone number.</p>
+                            </div>
+                            <div class="form-block-container">
+                                <div class="form-info-block">
+                                    <div class="form-info-label">
+                                        <div class="info-label">
+                                            <span>Name</span>    
+                                        </div>
+                                        <div class="info-label-error">
+                                            <span id="error-name" class="name-error-message"></span>
+                                            <span id="error-name-1" class="name-error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-info-input-block">
+                                        <input type="text" onkeyup="seeEntry()" class="info-input-box" placeholder="e.g. Stephen King" id="personal-info-name" maxlength="25">
+                                    </div>
+                                </div>
+                                <div class="form-info-block">
+                                    <div class="form-info-label">
+                                        <div class="info-label">
+                                            <span>Email Address</span>    
+                                        </div>
+                                        <div class="info-label-error">
+                                            <span id="error-email" class="name-error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-info-input-block">
+                                        <input type="email" onkeyup="seeEntry()" class="info-input-box" placeholder="e.g. Stephen@gmail.com" id="personal-info-email" maxlength="25">
+                                    </div>
+                                </div>
+                                <div class="form-info-block">
+                                    <div class="form-info-label">
+                                        <div class="info-label">
+                                            <span>Phone number</span>    
+                                        </div>
+                                        <div class="info-label-error">
+                                            <span id="error-number" class="name-error-message"></span>
+                                            <span id="error-number-1" class="name-error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-info-input-block">
+                                        <input type="tel" onkeyup="seeEntry()" class="info-input-box" placeholder="e.g. 9090909090" id="personal-info-contact" maxlength="10">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <div class="next-button-block">
+                            <div class="go-back-block">
+                            </div>
+                            <button class="next-button" >
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="select-plan-block" id="select-plan-id">
+                    <div class="form-content-block">
+                        <div class="head-and-info-wrapper">
+                            <div class="form-header">
+                                <h2>Select your plan</h2>
+                                <p>You have the option of monthly or yearly billing</p>
+                            </div>
+                            <div class="form-block-container">
+                                <div class="selection-block-container">
+                                    <div class="selection-block" id="selection-1" onclick="selectPackage(1)">
+                                        <div class="selection-image">
+                                            <img src="./assets/images/icon-arcade.svg" alt="">
+                                        </div>
+                                        <div class="selection-details">
+                                            <h5 class="selection-details-header">Arcade</h5>
+                                            <p class="selection-details-p" id="arcade-price"></p>
+                                            <div class="selection-span-wrapper-block" id="selection-span-wrapper-1">
+                                                <span id="price-1" class="selection-details-price-span">$9/mo</span><br>
+                                                <span class="selection-details-span">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="selection-block" id="selection-2" onclick="selectPackage(2)">
+                                        <div class="selection-image">
+                                            <img src="./assets/images/icon-advanced.svg" alt="">
+                                        </div>
+                                        <div class="selection-details">
+                                            <h5 class="selection-details-header">Advanced</h5>
+                                            <p class="selection-details-p" id="arcade-price"></p>
+                                            <div class="selection-span-wrapper-block" id="selection-span-wrapper-1">
+                                                <span id="price-2" class="selection-details-price-span">$12/mo</span><br>
+                                                <span class="selection-details-span">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="selection-block" id="selection-3" onclick="selectPackage(3)">
+                                        <div class="selection-image">
+                                            <img src="./assets/images/icon-pro.svg" alt="">
+                                        </div>
+                                        <div class="selection-details">
+                                            <h5 class="selection-details-header">Pro</h5>
+                                            <p class="selection-details-p" id="arcade-price"></p>
+                                            <div class="selection-span-wrapper-block" id="selection-span-wrapper-1">
+                                                <span id="price-3" class="selection-details-price-span">$15/mo</span><br>
+                                                <span class="selection-details-span">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-label-error">
+                                    <span id="error-package" class="package-error-message"></span>
+                                </div>
+                                <div class="period-selection-block">
+                                    <div class="period-selection-detials">
+                                        <h5>Monthly</h5>
+                                        <label class="switch">
+                                            <input type="checkbox" onchange="checkBox()" class="period-check" id="period-check-id" >
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <h5>Yearly</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <div class="next-button-block">
+                            <div class="go-back-block">
+                                <span onclick="renderContent(1)">Go Back</span>
+                            </div>
+                            <button class="next-button" onclick="submitPlan()">
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-on-block" id="add-on-id">
+                    <div class="form-content-block">
+                        <div class="head-and-info-wrapper">
+                            <div class="form-header">
+                                <h2>Pick add-ons</h2>
+                                <p>Add-ons help enhance your gaming experience.</p>
+                            </div>
+                            <div class="form-block-container">
+                                <div class="add-on-container">
+                                    <div class="add-on-box" id="add-on-box-1" onclick="updateOnClickAddOn(1)">
+                                        <div class="add-on-check-info">
+                                            <div class="add-on-check-block">
+                                                <input type="checkbox" name="" onchange="updateOnClickAddOn(1)" id="add-on-id-1" class="add-on-check">
+                                            </div>
+                                            <div class="add-on-check-info-block">
+                                                <h5>Online Service</h5>
+                                                <p>Access to multiplayer games</p>
+                                            </div>
+                                        </div>
+                                        <div class="add-on-price-info">
+                                            <div class="price">
+                                                <p class="addon-price" id="online-price-id">+$1/mo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add-on-box" id="add-on-box-2" onclick="updateOnClickAddOn(2)">
+                                        <div class="add-on-check-info">
+                                            <div class="add-on-check-block">
+                                                <input type="checkbox" name="" onchange="updateOnClickAddOn(2)" id="add-on-id-2" class="add-on-check">
+                                            </div>
+                                            <div class="add-on-check-info-block">
+                                                <h5>Larger storage</h5>
+                                                <p >Extra 1TB of cloud save</p>
+                                            </div>
+                                        </div>
+                                        <div class="add-on-price-info">
+                                            <div class="price">
+                                                <p class="addon-price" id="large-price-id">+$2/mo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add-on-box" id="add-on-box-3" onclick="updateOnClickAddOn(3)">
+                                        <div class="add-on-check-info">
+                                            <div class="add-on-check-block">
+                                                <input type="checkbox" name="" onchange="updateOnClickAddOn(3)" id="add-on-id-3" class="add-on-check">
+                                            </div>
+                                            <div class="add-on-check-info-block">
+                                                <h5>Customizable Profile</h5>
+                                                <p>Custom theme on your profile</p>
+                                            </div>
+                                        </div>
+                                        <div class="add-on-price-info">
+                                            <div class="price">
+                                                <p class="addon-price" id="custom-price-id">+$2/mo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="info-label-error">
+                                    <span id="error-package" class="package-error-message"></span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-block"> 
+                        <div class="next-button-block">
+                            <div class="go-back-block">
+                                <span onclick="renderContent(2)">go back</span>
+                            </div>
+                            <button class="next-button" onclick="submitAddOn()">
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="finish-up-block" id="finish-up-id">
+                    <div class="form-content-block">
+                        <div class="head-and-info-wrapper">
+                            <div class="form-header">
+                                <h2>Finishing up</h2>
+                                <p>Double-check everything looks OK before confirming.</p>
+                            </div>
+                            <div class="form-block-container">
+                                <div class="finish-up-container">
+                                    <div class="finish-info-block">
+                                        <div class="finish-package-block">
+                                            <h5 id="finish-package-name-id">Arcade (Monthly)</h5>
+                                            <span class="change-text-click" onclick="renderContent(2)">Change</span>
+                                        </div>
+                                        <div class="finish-package-price-block">
+                                            <h5 id="finish-package-price-id">$9/mo</h5>
+                                        </div>
+                                    </div>
+                                    <div class="divider-line">
+                                        <hr>
+                                    </div>
+                                    <div class="finish-add-on-wrapper" id="add-on-wrapper-id">
+                                        <!-- <div class="finish-add-on-block">
+                                            <div class="finish-add-detail-block">
+                                                <p>online service</p>
+                                            </div>
+                                            <div class="finish-add-on-price-block">
+                                                <p>+1/mo</p>
+                                            </div>
+                                        </div> -->
+                                        
+                                    </div>
+                                </div>
+                                <div class="total-container">
+                                    <div class="total-text">
+                                        <span class="finish-text-span" id="finist-total-text-id">Total</span>
+                                    </div>
+                                    <div class="total-value">
+                                        <span class="finish-value-span" id="finist-total-total-id">Total</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <div class="next-button-block">
+                            <div class="go-back-block">
+                                <span onclick="renderContent(3)">go back</span>
+                            </div>
+                            <button class="next-button" onclick="renderContent(5)">
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="thank-you-block" id="thank-you-id">
+                    <div class="thank-you-card">
+                        <img src="./assets/images/checked.jfif" class="checked-image" alt="">
+                        <h2>Thank you!</h2>
+                        <div class="thank-you-text-block">
+                            <p>
+                                Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

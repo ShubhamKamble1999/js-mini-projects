@@ -1,0 +1,634 @@
+@font-face {
+    font-family: 'ubuntu-regular';
+    src: URL('../assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'ubuntu-regular';
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 500px;
+    background-color: hsl(217, 100%, 97%);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.left-block{
+    height: 500px;
+    width: 241.20px;
+    background-image: url(../assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.right-block{
+    height: 500px;
+    width: 500px;
+}
+
+.step-block{
+    display: inline-flex;
+    margin: 16px 16px 0px 16px;
+}
+
+.step-circle{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.step-circle.active{
+    background-color: white;
+    color: black;
+}
+
+.step-circle.active span{
+    /* background-color: white; */
+    color: black;
+}
+
+.step-circle span{
+    color: white;
+}
+
+.step-title-block{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.step-text{
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+.step-title{
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.finish-value-span{
+    font-size: 16px;
+    color: hsl(243, 100%, 62%);
+    font-weight: bolder;
+
+}
+
+.finish-text-span{
+    font-size: 14px;
+    color: gray;
+}
+
+.form-wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 64px;
+}
+
+.personal-info-block{
+    display: none;
+}
+
+.personal-info-block.active{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.form-header p{
+    margin: 8px 0px;
+    font-size: 14px;
+    color: #a79f9f;
+}
+
+.form-block-container{
+    margin: 32px 0px;
+}
+
+.name-error-message{
+    color: red;
+    font-size: 14px;
+}
+
+.form-info-label{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-label{
+    font-size: 14px;
+}
+
+.form-info-block{
+    margin: 16px 0px;
+}
+
+.form-info-input-block{
+    margin: 4px 0px;
+}
+
+.info-input-box{
+    width: 100%;
+    padding: 8px 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.info-input-box:focus{
+    outline: 1px solid hsl(243, 100%, 62%); 
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.info-input-box.error{
+    outline: 1px solid red; 
+}
+
+.package-error-message{
+    color: red;
+    font-size: 14px;
+    margin: 18px 0px;
+}
+
+.next-button-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------------------ */
+
+.select-plan-block{
+    display: none;
+}
+
+.select-plan-block.active{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.selection-block-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.selection-block{
+    border: 1px solid #a79f9f;
+    width: 110px;
+    padding: 8px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.selection-details-price-span{
+    font-size: 13px;
+    color: #a79f9f;
+}
+
+.selection-block.active{
+    border: 2px solid blue;
+    background-color: hsl(217, 100%, 97%);
+}
+
+.selection-image img{
+    height: 30px;
+    width: 30px;
+}
+
+.selection-details-span{
+    font-size: 12px;
+    font-weight: 800;
+    color: hsl(243, 100%, 62%);
+}
+
+.period-selection-block{
+    margin: 32px 0px;
+    width: 100%;
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.period-selection-detials{
+    display: inline-flex;
+    padding: 16px 0px;
+}
+
+.switch{
+    margin: 0px 16px;
+}
+
+/* ----------------------------------  SLIDER CODE (refer geeksforgeeks)  ------------------------------- */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 16px;
+    margin: 0px 22px;
+
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    /* bottom: 4px; */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px black;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translate(18px,-50%);
+  }
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/* ----------------------------------------------------------------- */
+
+.go-back-block{
+    color: gray;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.go-back-block:hover{
+    color: hsl(213, 96%, 18%);
+}
+
+.next-button{
+    padding: 8px 16px;
+    border: none;
+    background-color: hsl(213, 96%, 18%);
+    color: white;
+    border-radius: 4px;
+}
+
+/* ------------ ADD ON ------------ */
+
+.add-on-block{
+    display: none;
+}
+
+.add-on-block.active{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.add-on-box{
+    width: 100%;
+    margin: 8px 0px;
+    border: 1px solid black;
+}
+
+.add-on-check{
+    margin: 12px;
+    height: 15px;
+    width: 15px;
+    appearance: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+
+}
+
+.add-on-check:checked{
+    background-color: hsl(243, 100%, 62%);
+    border-radius: 4px;
+    border: none;
+}
+
+.add-on-check::before{
+    content: "\2713";
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+}
+
+.add-on-check-info{
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 0px;
+}
+
+.add-on-check-info-block p{
+    font-size: 14px;
+    color: #6a6666;
+}
+
+.add-on-check-info-block h5{
+    color: hsl(213, 96%, 18%);
+}
+
+.add-on-price-info{
+    margin: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.add-on-box{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 1.3px solid rgb(214, 214, 214);
+    border-radius: 4px;
+}
+
+.add-on-box:hover{
+    border: 1.3px solid hsl(243, 100%, 62%);
+    /* background-color: hsl(217, 100%, 97%); */
+}
+
+.add-on-box.active{
+    border: 1.3px solid hsl(243, 100%, 62%);
+    background-color: hsl(217, 100%, 97%);
+}
+
+/* -------- FINISH UP --------- */
+
+.finish-up-block{
+    display: none;
+}
+
+.finish-up-block.active{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.finish-info-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .form-block-container{
+    background-color: rgb(235, 234, 234);
+    padding: 16px;
+} */
+
+.divider-line{
+    margin: 16px;
+}
+
+.finish-up-container{
+    background-color: rgb(235, 234, 234);
+    padding: 16px;
+}
+
+.finish-add-on-block{
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0px;
+}
+
+.finish-add-detail-block p{
+    font-size: 14px;
+    color: gray;
+}
+
+.finish-add-on-price-block{
+    font-size: 14px;
+    color: gray;
+}
+
+.total-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 16px;
+    margin: 8px 0px;
+}
+
+.change-text-click{
+    font-size: 12px;
+    color: #6a6666;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.change-text-click:hover{
+    color: hsl(213, 96%, 18%);
+}
+
+/* -------------- THANK YOU ----------------- */
+
+.checked-image{
+    height: 80px;
+}
+
+.thank-you-block{
+    display: none;
+}
+
+.thank-you-block.active{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.thank-you-card h2{
+    padding-top: 16px;
+}
+
+.thank-you-text-block{
+    margin: 16px;
+}
+
+.addon-price{
+    font-size: 14px;
+    color: blue;
+}
+
+@media screen and (max-width: 576px) and (min-width: 300px) {
+
+    body{
+        height: fit-content;
+        min-height: 700px;
+        align-items: start;
+    }
+
+    .container{
+        flex-direction: column;
+        padding: 0px;
+        background-color: transparent;
+    }  
+
+    .left-block{
+        height: 300px;
+        width: 100vw;
+        margin: 0px;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-position: center bottom;
+        
+    }
+
+    .steps-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .right-block{
+        width: 100%;
+        height: fit-content;
+    }
+
+    .step-title-block{
+        display: none;
+    }
+
+    .form-wrapper{
+        padding: 16px;
+        margin-top: -200px;
+        /* background-color: white; */
+    }
+
+    .step-circle{
+        height: 40px;
+        width: 40px;
+        margin: 16px 8px;
+    }
+
+    .personal-info-block{
+        background-color: white;
+        padding: 16px;
+    }
+
+    .select-plan-block{
+        background-color: white;
+        padding: 16px;
+    }
+
+    .next-button-block{
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        background-color: white;
+        width: 100vw;
+        padding: 16px;
+    }
+
+    .selection-block-container{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+    }
+
+    .selection-block{
+        display: flex;
+        justify-content: normal;
+        flex-direction: row;
+        height: fit-content;
+        width: 100%;
+        margin: 8px 0px;
+    }
+
+    .selection-details{
+        margin: 0px 18px;
+    }
+
+    .period-selection-block{
+        margin: 16px 0px;
+    }
+
+    .add-on-block{
+        background-color: white;
+        padding: 16px;
+    }
+
+    .finish-up-block{
+        background-color: white;
+        padding: 16px;
+    }
+
+}

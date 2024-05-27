@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-one {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.container-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.information{
+    grid-column: 2/2;
+}
+
+@media screen and (max-width: 767px) {
+    .information{
+        grid-column: 2/1;
+    }
+}
