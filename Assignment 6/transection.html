@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style/dashboard.css">
+    <link rel="stylesheet" href="./style/transaction.css">
+    <script defer src="./script/transaction.js"></script>
+</head>
+
+<body>
+
+    <nav class="bar" id="bar-id">
+        <img src="./assets/images/menu.png" id="hamburger-menu" onclick="displaySideBar()" class="logout-image"></img>
+        <div class="logo">
+            <h3 onclick="location.href='dashboard.html'">Personal Expense Tracker</h3>
+        </div>
+        <div class="logout">
+            <img src="./assets/images/logout.png" onclick="handleLogout()" class="logout-image" alt="">
+        </div>
+
+    </nav>
+    <!-- <button onclick="displaySideBar()" class="toogle-nav">Toggle Nav</button> -->
+    <div id="grid-container-id"  class="grid-container">
+        <div id="left-panel-id" class="left-panel">
+            <div class="left-panel-wrapper">
+                <div class="price-block">
+                    <div class="price-monthly-block">
+                        <p class="amount-display" id="amount-display-id"></p>
+                        <p class="amount-month">Total Expenses for the Current Month</p>
+                    </div>
+                    <div class="price-monthly-block">
+                        <p class="amount-display" id="amount-day-display-id"></p>
+                        <p class="amount-month">Total Amount Spent Today</p>
+                    </div>
+                </div>
+                <!-- <div class="list-block">
+                    <div class="list-content" onclick="location.href='dashboard.html'">
+                        <div class="icon">
+                            <img src="./assets/images/dashboard.png" class="icon-img" alt="">
+                        </div>
+                        <div class="icon-marker">
+                            <p>Dashboard</p>
+                        </div>
+                    </div>
+                    <div class="list-content" onclick="location.href='todayTransaction.html'">
+                        <div class="icon">
+                            <img src="./assets/images/expenses.png" class="icon-img" alt="">
+                        </div>
+                        <div class="icon-marker">
+                            <p>Today's Expense</p>
+                        </div>
+                    </div>
+                    <div class="list-content">
+                        <div class="icon">
+                            <img src="./assets/images/transaction.png" class="icon-img" alt="">
+                        </div>
+
+                        <div class="icon-marker">
+                            <p>All Transactions</p>
+                        </div>
+                    </div>
+                </div> -->
+                <p class="menu-title">MENU</p>
+                <ul class="sidebar-menu">
+                    <li class="menu-item" id="level-id-1" onclick="location.href='dashboard.html'">
+                        <img src="./assets/images/dashboard.png" class="icon-img" alt="">
+                        <p>Dashboard</p>
+                    </li>
+                    <li class="menu-item" id="level-id-2" onclick="handleSwitchToTodayExpense()">
+                        <img src="./assets/images/expenses.png" class="icon-img" alt="">
+                        <p>Today's Expense</p>
+                    </li>
+                    <li class="menu-item" id="level-id-3">
+                        <img src="./assets/images/transaction.png" class="icon-img" alt="">
+                        <p>All Transactions</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="container" id="container-id">
+
+                <table id="table-id">
+                    <thead>
+                        <tr>
+                            <!-- <th>Reject</th> -->
+                            <th width="240px" onclick="handleDataSort(1)">
+                                <div class="inner-table">
+                                    <div>Name</div>
+                                    <div class="table-icon-block">
+                                        <img src="./assets/images/top.png" id="arr1" class="arrow1" alt="">
+                                    </div>
+                                </div>
+                            </th>
+                            <th width="150px" onclick="handleDataSort(2)">
+                                <div class="inner-table">
+                                    <div>Amount</div>
+                                    <div class="table-icon-block">
+                                        <img src="./assets/images/top.png" id="arr2" class="arrow2" alt="">
+                                    </div>
+                                </div>
+                            </th>
+                            <th width="150px" onclick="handleDataSort(3)">
+                                <div class="inner-table">
+                                    <div>Date</div>
+                                    <div class="table-icon-block">
+                                        <img src="./assets/images/top.png" id="arr3" class="arrow3" alt="">
+                                    </div>
+                                </div>
+                            </th>
+                            <th width="150px" onclick="handleDataSort(4)">
+                                <div class="inner-table">
+                                    <div>category</div>
+                                    <div class="table-icon-block">
+                                        <img src="./assets/images/top.png" id="arr4" class="arrow4" alt="">
+                                    </div>
+                                </div>
+                            </th>
+                            <th width="70px">
+                                <div>Edit</div>
+                            </th>
+                            <th width="70px">
+                                <div>Delete</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body" id="table-wrapper-id">
+                        <!-- <tr>
+                            <td>HHH</td>
+                            <td>Alfreds Futterkiste Alfreds Futterkiste Alfreds Futterkiste.</td>
+                            <td>Germany</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr> -->
+
+                    </tbody>
+                </table>
+
+                
+            </div>
+            <div class="mobile-container" id="mobile-container-id">
+                <div class="two-field">
+                    <select name="field-options" class='mobile-select-option' id="field-options-key-id">
+                        <option value="none">Select key</option>
+                        <option value="date">Date</option>
+                        <option value="amount">Amount</option>
+                        <option value="description">Description</option>
+                        <option value="category">Category</option>
+                    </select>
+                    <select name="sort-options" class='mobile-select-option' id="sort-options-sort-id">
+                        <option value="none">Sort by</option>
+                        <option value="asc">Asc</option>
+                        <option value="desc">Desc</option>
+                    </select>
+                </div>
+                <div class="mobile-wrapper" id="mobile-wrapper-id"></div>
+                
+            </div>
+            <div class="bottom-block" id="bottom-block-id">
+
+                <div class="select-and-page-block">
+                    <div class="select-block">
+                        <label for="pageSize">Page size</label>
+                        <select name="Search by" class="select-options" onchange="handleSelectionChange()"
+                            id="select-option-id">
+                            <!-- <option value="0">0</option> -->
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
+                    <div class="page-display-detial-block">
+                        <p>Page <span id="span-current-page-id">0</span> of <span id="span-end-page-id">0</span></p>
+                        <div class="button-block">
+                            <button class="filter-button" id="decrement-button-id" onclick="decrementPage()">
+                                < </button>
+                                    <button class="filter-button" id="increment-button-id"
+                                        onclick="incrementPage()"> > </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="popup-delete" class="popup">
+        <div class="close-icon">
+            <i class="fa-solid fa-xmark" onclick="closePopup()"></i>
+        </div>
+        <div class="popup-content">
+            <div class="seccess-img-block">
+                <img id="popup-image-id" class="success-img" alt="">
+            </div>
+            <p id="message-text-id"></p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="form-block" id="pop-for-upload">
+        <div class="form-container">
+            <form onsubmit="handleEditData()" class="submit-form">
+                <div class="close-icon">
+                    <i class="fa-solid fa-xmark" onclick="closeAddPopup()"></i>
+                </div>
+                <div class="form-header-block">
+                    <h3 class="form-header">
+                        Edit Expense Details
+                    </h3>
+                </div>
+
+                <div class="form-element-block">
+                    <div class="form-input-element-block">
+                        <div class="form-titile-block">
+                            <label for=""><span class="required-span">* </span>Description</label>
+                            <p class="error-message" id="name-error-id"></p>
+                        </div>
+                        <input type="text" class="form-input" placeholder="Enter expense description"
+                            name="expense-name" id="name-id" maxlength="50" autocomplete="off" required>
+                    </div>
+                    <div class="form-input-element-block">
+                        <div class="form-titile-block">
+                            <label for="amount">
+                                <span class="required-span">* </span>Amount
+                            </label>
+                            <p class="error-message" id="amount-error-id"></p>
+                        </div>
+                        <input type="text" class="form-input" placeholder="Enter expense amount" name="amount"
+                            id="amount-id" maxlength="50" maxlength="6" required pattern="[0-9]+"
+                            title="Please enter only numers">
+                        <!-- <input type="text" class="form-input" placeholder="Enter expense amount" name="amount"
+                            id="amount-id" maxlength="50" autocomplete="off" required> -->
+                    </div>
+                    <div class="form-input-element-block">
+                        <div class="form-titile-block">
+                            <label for="">
+                                <span class="required-span">* </span>Date
+                            </label>
+                            <p class="error-message" id="date-error-id"></p>
+                        </div>
+                        <input type="date" id="date-input" class='form-input' disabled />
+                    </div>
+
+                    <div class="form-input-element-block">
+                        <div class="form-titile-block">
+                            <label for="select category">
+                                <span class="required-span">* </span>Category
+                            </label>
+                            <p class="error-message" id="select-category-error-id"></p>
+                        </div>
+                        <select name="select category" id="select-category-id" class='form-input'>
+                            <option value="none">Select your category</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Food">Food</option>
+                            <option value="Health">Health</option>
+                            <option value="Debt Payments">Debt Payments</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Savings and Investments">Savings and Investments</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pop-up-button-block">
+                    <button class="button" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
