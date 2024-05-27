@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
+</head>
+
+<body>
+    <div class="pop-up-display-block" id="pop-up-id">
+        <div class="pop-up-element">
+            <h2 class="pop-up-success-header">Successfull Register</h2>
+            <!-- <div class="image-wrapper" id="image-wrapper-id">
+
+            </div> -->
+            <div class="pop-up-display">
+                <span class="pop-up-key">Name : </span><span id="pop-name">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Age : </span><span id="pop-age">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Birth Date : </span><span id="pop-birth-date">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Email : </span><span id="pop-email">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Gender : </span><span id="pop-gender">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Contact : </span><span id="pop-contact">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Sport : </span><span id="pop-sport">{userData.userName}</span>
+            </div>
+            <div class="pop-up-display">
+                <span class="pop-up-key">Comments : </span><span id="pop-extra">{userData.userName}</span>
+            </div>
+            
+            <!-- <p id="pop-age">Age: {userData.age}</p>
+            <p id="pop-gender">Gender: {userData.gender}</p>
+            <p id="pop-contact">Contact Details: {userData.contact}</p>
+            <p id="pop-sport">Sport: {userData.sportChoose}</p> -->
+            <div class="pop-up-close-block">
+                <button class="close-btn" onclick="handleClosePopup()">Close</button>
+            </div>
+        </div>
+    </div> 
+    <div class='form-container' id="main-container">
+        
+
+        <div class="form-body">
+            <div class="header">
+                <h2>Registration form</h2>
+            </div>
+            <form onsubmit="submitForm()" class="form-fields-block" id="form-fields-block-id">
+                
+                <!-- <div class="form-field">
+                    <div class="form-head">
+                        <span>Upload Image</span>
+                    </div>
+                    <div class="form-input-block">
+                        <input type="file" id="image-input" class='form-input' />
+                    </div>
+                </div> -->
+                <div class="form-field">
+                    <div class="form-head">
+                        <span>Name</span>
+                        <p class="error-message" id="name-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <input type="text" id="name-input" class='form-input' required/>
+                    </div>
+                </div>
+                <!-- <div class="form-field">
+                    <div class="form-head">
+                        <span>Age <span class="limit-text">(age limit 16-24)</span></span>
+                        <p class="error-message" id="age-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <input type="number" onkeyup="handleKeyPress()" id="age-input" class='form-input' required/>
+                    </div>
+                </div> -->
+                <div class="form-field">
+                    <div class="form-head">
+                        <span>Email Address</span>
+                        <p class="error-message" id="email-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <input type="email" id="email-input" class='form-input' required/>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <div class="two-block-display">
+                        <div class="left-form-enrty">
+                            <div class="form-head">
+                                <span>Gender</span>
+                                <!-- <p class="error-message" id="gender-error-id"></p> -->
+                            </div>
+                            <div class="form-input-block">
+                                <div class="gender-radio-block">
+                                    <div class="gender-input-block">
+                                        <label for="html">Male</label>
+                                        <input type="radio" id="gender-male-id" name="gender" value="male">
+                                    </div>
+                                    <div class="gender-input-block">
+                                        <label for="html">Female</label>
+                                        <input type="radio" id="gender-female-id" name="gender" value="female">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="right-form-enrty">
+                            <div class="form-head">
+                                <span>Choose sport</span>
+                                <!-- <p class="error-message" id="sport-error-id"></p> -->
+                            </div>
+                            <div class="form-input-block">
+                                <select class="sports-select" name="select-sport" onchange="callListChange()" id="select-sport-id">
+                                    <option value="none">Select from option</option>
+        
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="inner-two-block-error-field">
+                        <p class="error-message" id="gender-error-id"></p>
+                        <p class="error-message" id="sport-error-id"></p>
+
+                    </div>
+
+
+                </div>
+                <div class="form-field">
+                    <div class="two-block-display">
+                        <div class="left-form-enrty">
+                            <div class="form-head">
+                                <span>Birth Date</span>
+                                <!-- <p class="error-birthdate" id="birthdate-error-id"></p> -->
+                            </div>
+                            <div class="form-input-block">
+                                <input type="date" id="birthdate-input" onchange="updateAge()" class='form-input-date' name="birthdate" required/>
+                            </div>
+
+                            <!-- <div class="form-head">
+                                <span>Birth Date</span>
+                                <p class="error-birthdate" id="birthdate-error-id"></p>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="birthdate-block">
+                                    <input type="date" id="birthdate-input" onchange="updateAge()" class='form-input-date' name="birthdate" />
+                                </div>
+                                
+                            </div> -->
+                        </div>
+                        <div class="right-form-enrty">
+                            <div class="form-head">
+                                <span>Age <span class="limit-text">(age limit 16-24)</span></span>
+                                <p class="error-message" id="age-error-id"></p>
+                            </div>
+                            <div class="form-input-block">
+                                <input type="number" onkeyup="handleKeyPress()" id="age-input" class='default-age' disabled required/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="error-message" id="age-diff-error-id"></p>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-head">
+                        <span>Contact Details</span>
+                        <p class="error-message" id="contact-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <input type="tel" pattern="[0-9]{10}" title="Number should be 10 digits"id="contact-input" class='form-input' required/>
+                    </div>
+                </div>
+                <!-- <div class="form-field">
+                    <div class="form-head">
+                        <span>Choose sport</span>
+                        <p class="error-message" id="sport-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <select class="sports-select" name="select-sport" onchange="callListChange()" id="select-sport-id">
+                            <option value="none">Select from option</option>
+
+                        </select>
+                    </div>
+                </div> -->
+                <div class="form-field">
+                    <div class="form-head">
+                        <span>Add comment</span>
+                        <p class="error-message" id="extra-text-error-id"></p>
+                    </div>
+                    <div class="form-input-block">
+                        <textarea name="" id="extra-text-id" onkeyup="textAreaLength()" cols="20" rows="3" maxlength="80" class='form-input'></textarea>
+                    </div>
+                </div>
+                <div class="form-button-block">
+                    <button type='submit' class="submit-button">
+                        Submit
+                    </button>
+                    <button type="reset" class="reset-button">
+                        Reset
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
